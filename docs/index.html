@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blueprint Linter</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/luxon@2.4.0/build/global/luxon.min.js" integrity="sha256-DIsAGD2EF8Qq2PCH9yzX/yt9FliJfWf+aGcdgR6tKwo=" crossorigin="anonymous"></script>
+  <script src="./scripts/main.js" type="module"></script>
+</head>
+<body>
+  <section id="hero" class="hero is-small is-info">
+    <div class="hero-body">
+      <div class="title-container">
+        <div class="container has-text-centered">
+          <img id="yuri" class="yuri-small" src="./images/yuri.yeti.png" alt="" srcset="">
+          <p class="title">
+            Blueprint Linter
+          </p>
+          <!-- <p class="subtitle">
+            Because Yuri the Yeti knows where you live
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="columns">
+      <div class="column is-one-fifth">
+        <h2 class="title is-4">Blueprints</h2>
+        <div id="blueprint-selector">
+
+        </div>
+      </div>
+      <div class="column">
+        <p class="timestamp-container">
+          This linter result was generated on: <span id="timestamp"></span>
+        </p>
+        <table id="result-table" class="table">
+          <thead>
+              <tr>
+                <th>ID</th>
+                <th>Passed</th>
+                <th>Description</th>
+                <th>File</th>
+              </tr>
+            </thead>
+            <tbody id="result-table-body">
+                       
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
