@@ -3,7 +3,7 @@ import view from './view.js';
 const GITHUB_ORG = 'GenesysCloudBlueprints';
 const RESULTS_REPO = 'genesyscloud-blueprint-linter-results';
 const BLUEPRINTS_INDEX_URL = `https://${GITHUB_ORG}.github.io/${RESULTS_REPO}/blueprints/index.json`;
-const BLUEPRINTS_URL = `https://${GITHUB_ORG}.github.io/${GITHUB_ORG}/blueprints/`;
+const BLUEPRINTS_URL = `https://${GITHUB_ORG}.github.io/${RESULTS_REPO}/blueprints/`;
 // const BLUEPRINTS_INDEX_URL = `http://localhost:8080/blueprints/index.json`;
 // const BLUEPRINTS_URL = `http://localhost:8080/blueprints/`;
 
