@@ -1,4 +1,14 @@
-function showBlueprintResult(blueprintResult){
+let currentBPshown = '';
+
+function _showBlueprintResult(blueprintResult, bpName){
+  showContentSection();
+  // History related 
+  if(currentBPshown !== bpName){
+    history.pushState(bpName, null, `?bp=${bpName}`);
+    currentBPshown = bpName
+  }
+
+  // Element references
   const resultBodyEl = document.getElementById('result-table-body');
   const timestampEl = document.getElementById('timestamp');
   if(!resultBodyEl || !timestampEl) throw new Error('Missing element');
@@ -48,14 +58,38 @@ function showBlueprintResult(blueprintResult){
   timestampEl.innerText = luxon.DateTime.fromISO(blueprintResult.timestamp).toLocaleString(luxon.DateTime.DATETIME_MED) ;
 }
 
+function onFirstEnter(){
+  // Easter egg on Yuri
+  let yuriEl = document.getElementById('yuri');
+  if(!yuriEl) return;
+
+  yuriEl.addEventListener('click', () => {
+    alert('Yuri says "Please fix the errors. I know where you live."');
+  });
+
+  // Content Section blank
+  hideContentSection();
+}
+
+function hideContentSection(){
+  const contentSectionEl = document.getElementById('content-section');
+  if(!contentSectionEl) return;
+
+  contentSectionEl.style.display = 'none';
+}
+
+function showContentSection(){
+  const contentSectionEl = document.getElementById('content-section');
+  const selectNoticeEl = document.getElementById('select-a-blueprint');
+  if(!contentSectionEl || !selectNoticeEl) return;
+
+  contentSectionEl.style.display = '';
+  selectNoticeEl.style.display = 'none';
+}
+
 export default {
   initiate(){
-    let yuriEl = document.getElementById('yuri');
-    if(!yuriEl) return;
-
-    yuriEl.addEventListener('click', () => {
-      alert('Yuri says "Please fix the errors. I know where you live."');
-    });
+    onFirstEnter();
   },
 
   /**
@@ -74,10 +108,14 @@ export default {
       btn.innerText = bpName;
       btn.addEventListener('click', (event) => {
         event.preventDefault();
-        showBlueprintResult(blueprints[bpName]);
+        _showBlueprintResult(blueprints[bpName], bpName);
       });
 
       blueprintSelectorEl.appendChild(btn)
     });
   },
+
+  showBlueprintResult(blueprintResult, bpName){
+    _showBlueprintResult(blueprintResult, bpName)
+  }
 }
