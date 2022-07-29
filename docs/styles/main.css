@@ -23,6 +23,11 @@
     font-weight: bold;
 }
 
+.small-text {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
 .yuri-small {
     display: float;
     width: 100px;
@@ -31,4 +36,12 @@
     border-width: 5px;
     border-style: solid;
     cursor: pointer;
+}
+
+#result-table {
+    margin-top: 20px;
+}
+
+.results-bpname-container{
+    margin-bottom: 15px;
 }

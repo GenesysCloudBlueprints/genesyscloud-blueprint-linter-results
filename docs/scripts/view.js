@@ -56,6 +56,14 @@ function _showBlueprintResult(blueprintResult, bpName){
 
   // Add timestamp
   timestampEl.innerText = luxon.DateTime.fromISO(blueprintResult.timestamp).toLocaleString(luxon.DateTime.DATETIME_MED) ;
+
+  // Link to Repo and bpname
+  const linkToRepoEl = document.getElementById('link-to-repo');
+  const bpNameEl = document.getElementById('bpname');
+  if(!linkToRepoEl || !bpNameEl) return;
+
+  linkToRepoEl.href = `https://github.com/GenesysCloudBlueprints/${bpName}/`;
+  bpNameEl.innerText = bpName;
 }
 
 function onFirstEnter(){
